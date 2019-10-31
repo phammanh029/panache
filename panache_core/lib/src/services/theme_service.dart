@@ -55,6 +55,8 @@ abstract class ThemeService<D, F> {
 
   void saveTheme(String filename);
 
+  Future<ThemeData> importTheme(String themeFileContent);
+
   Future<ThemeData> loadTheme(String path);
 
   bool themeExists(String path) {}

@@ -90,5 +90,10 @@ class WebThemeService extends ThemeService<dynamic, dynamic> {
     return _theme;*/
   }
 
+  Future<ThemeData> importTheme(String data) async {
+    _theme = themeFromJson(data);
+    return _theme;
+  }
+
   bool themeExists(String path) => false;
 }

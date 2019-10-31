@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -99,8 +100,13 @@ class ThemeModel extends Model {
   }
 
   void exportTheme({String name: 'theme'}) {
-    final code = themeToCode(theme);
-    _service.exportTheme(filename: name, code: code);
+    // final code = themeToCode(theme);
+    final code = themeToMap(theme);
+    _service.exportTheme(filename: name, code: jsonEncode(code));
+  }
+
+  void importTheme(String themeData) {
+    _service.importTheme(themeData);
   }
 
   void updateColor({String property, Color color}) {
